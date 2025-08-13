@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('active');
     });
 
+    
+
     // --- Contact Form Validation ---
     const contactForm = document.getElementById('contact-form');
 
@@ -34,4 +36,27 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.reset();
     });
 
+
 });
+
+
+// Background images array
+const heroSection = document.getElementById("hero");
+const heroImages = [
+    "./photos/img1.jpg",
+    "./photos/img2.jpg",
+    "./photos/img3.jpg"
+];
+
+let currentHeroIndex = 0;
+
+function changeHeroBackground() {
+    heroSection.style.backgroundImage = 
+        `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('${heroImages[currentHeroIndex]}')`;
+    currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+}
+
+// Start rotation
+changeHeroBackground(); // First image on load
+setInterval(changeHeroBackground, 4000); // Change every 4 sec
+
