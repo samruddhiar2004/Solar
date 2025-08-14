@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPD Solar Engineers Pvt Ltd | Sustainable Energy Solutions</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
     <link rel="stylesheet" href="style.css">
+    
     <link rel="icon" href="https://www.tatapowersolar.com/wp-content/themes/tps/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -28,43 +32,60 @@
         </nav>
     </header>
 
-    
-    
-
     <main>
         <section id="hero">
-            
-            <div class="hero-content">
-                <h1>Power Your Future with the Sun</h1>
-                <p>Baramati's #1 Rooftop Solar Provider. Go green and reduce your electricity bills by up to 90%.</p>
-                <a href="#contact" class="cta-button">Get a Free Quote</a>
+            <div class="swiper hero-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image: url('./photos/img1.jpg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Secure Your Family's Future with Solar</h1>
+                            <p>Experience energy independence and cut your electricity bills by up to 90% with our residential rooftop solutions.</p>
+                            <a href="#contact" class="cta-button">Get a Free Home Quote</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('./photos/img2.jpg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Boost Your Business, Not Your Bills</h1>
+                            <p>Invest in a sustainable future. Our commercial solar solutions reduce operational costs and enhance your brand's green credentials.</p>
+                            <a href="#contact" class="cta-button">Analyze My Savings</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('./photos/img3.jpg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Powering Agriculture with the Sun</h1>
+                            <p>Ensure reliable water supply for your crops with our durable and efficient solar water pumps, designed for Indian farmers.</p>
+                            <a href="#contact" class="cta-button">Enquire About Pumps</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
-        
-
-
-
-        
 
         <section id="services">
-            <h2>Our Solutions</h2>
+            <h2 class="animate-on-scroll">Our Solutions</h2>
             <div class="services-container">
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <img src="./photos/img1.jpg" alt="Rooftop Solar Icon">
                     <h3>Residential Rooftop Solar</h3>
                     <p>Customized solar solutions for your home to ensure energy independence and significant savings.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                      <img src="./photos/img2.jpg" alt="Commercial Solar Icon">
                     <h3>Commercial & Industrial</h3>
                     <p>Scalable solar power systems for businesses to reduce operational costs and carbon footprint.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animate-on-scroll">
                     <img src="./photos/img3.jpg" alt="Solar Pump Icon">
                     <h3>Solar Water Pumps</h3>
                     <p>Reliable and efficient solar-powered pumps for agricultural needs, ensuring water security for farmers.</p>
                 </div>
-                 <div class="service-card">
+                 <div class="service-card animate-on-scroll">
                     <img src="./photos/img4.jpg" alt="EV Charging Icon">
                     <h3>EV Charging Stations</h3>
                     <p>Smart and fast EV charging solutions for homes, workplaces, and public spaces across India.</p>
@@ -73,13 +94,13 @@
         </section>
         
         <section id="about">
-            <h2>3+ Years of Powering a Sustainable India</h2>
-            <p>As one of India's largest integrated solar companies, we are committed to providing clean, sustainable, and affordable energy for a billion lives. Our expertise spans from manufacturing high-efficiency solar cells to executing world-class projects.</p>
+            <h2 class="animate-on-scroll">3+ Years of Powering a Sustainable India</h2>
+            <p class="animate-on-scroll">As one of India's largest integrated solar companies, we are committed to providing clean, sustainable, and affordable energy for a billion lives. Our expertise spans from manufacturing high-efficiency solar cells to executing world-class projects.</p>
         </section>
 
         <section id="contact">
-            <h2>Request a Callback</h2>
-            <form id="contact-form" class="contact-form">
+            <h2 class="animate-on-scroll">Request a Callback</h2>
+            <form id="contact-form" class="contact-form animate-on-scroll">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -105,6 +126,7 @@
         <p>&copy; 2025 PPD Solar Engineers Pvt Ltd. All Rights Reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

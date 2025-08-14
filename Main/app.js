@@ -8,7 +8,52 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.toggle('active');
     });
 
-    
+    // --- Hero Slider Initialization (Swiper.js) ---
+    const heroSlider = new Swiper('.hero-slider', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        effect: 'fade', // Use 'slide' or 'fade' or other effects
+        fadeEffect: {
+            crossFade: true
+        },
+        autoplay: {
+            delay: 5000, // Time in ms before next slide
+            disableOnInteraction: false,
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+
+    // --- On-Scroll Animation Logic (Intersection Observer) ---
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Optional: stop observing once visible
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+
 
     // --- Contact Form Validation ---
     const contactForm = document.getElementById('contact-form');
@@ -36,27 +81,4 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.reset();
     });
 
-
 });
-
-
-// Background images array
-const heroSection = document.getElementById("hero");
-const heroImages = [
-    "./photos/img1.jpg",
-    "./photos/img2.jpg",
-    "./photos/img3.jpg"
-];
-
-let currentHeroIndex = 0;
-
-function changeHeroBackground() {
-    heroSection.style.backgroundImage = 
-        `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('${heroImages[currentHeroIndex]}')`;
-    currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
-}
-
-// Start rotation
-changeHeroBackground(); // First image on load
-setInterval(changeHeroBackground, 4000); // Change every 4 sec
-

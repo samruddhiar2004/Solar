@@ -54,38 +54,88 @@ body {
     color: #E87722; /* Tata Orange */
 }
 
-
-/* --- Hero Section --- */
+/* --- Hero Section & Slider --- */
 #hero {
+    height: 90vh;
+    padding: 0; /* Remove padding to allow slider to be full width/height */
     position: relative;
-    height: 80vh;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-position: center; 
-    transition: background-image 1s ease-in-out; /* smooth fade */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 800px;
     padding: 20px;
+    position: relative;
+    z-index: 2;
 }
-
-
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
+
+/* --- Swiper Arrow and Pagination Styling --- */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 90, 158, 0.8);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.7);
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #E87722; /* Tata Orange */
+}
+
 
 .cta-button {
     display: inline-block;
@@ -102,7 +152,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #10062c;
+    background-color: #E87722;
 }
 
 /* --- Sections --- */
@@ -134,7 +184,7 @@ section h2 {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    flex-basis: 280px; /* Base width for each card */
+    flex-basis: 280px;
     flex-grow: 1;
     max-width: 320px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -143,6 +193,7 @@ section h2 {
     width: 72px;
     height: 72px;
     margin-bottom: 1rem;
+    border-radius: 8px;
 }
 
 .service-card:hover {
@@ -190,6 +241,24 @@ footer {
     padding: 1.5rem 5%;
 }
 
+/* --- Animation Classes --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add a delay for staggered animations in service cards */
+.service-card:nth-child(2) { transition-delay: 0.1s; }
+.service-card:nth-child(3) { transition-delay: 0.2s; }
+.service-card:nth-child(4) { transition-delay: 0.3s; }
+
+
 /* --- Mobile Menu --- */
 .mobile-menu-icon {
     display: none;
@@ -209,7 +278,7 @@ footer {
     .nav-links {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 70px; /* Adjust based on navbar height */
         left: 0;
         right: 0;
         background-color: #fff;
@@ -230,33 +299,14 @@ footer {
     .hero-content h1 {
         font-size: 2.5rem;
     }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .swiper-button-next, .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+    }
+    .swiper-button-next::after, .swiper-button-prev::after {
+        font-size: 1rem;
+    }
 }
-
-    /* Hero Section */
-.hero {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-
-.hero .swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.hero .swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Optional: make arrows and dots visible over dark images */
-.swiper-button-next,
-.swiper-button-prev {
-  color: white;
-}
-
-.swiper-pagination-bullet {
-  background: white;
-}
-
